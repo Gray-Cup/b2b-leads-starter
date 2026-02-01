@@ -1,0 +1,32 @@
+zerops:
+  - setup: storefront
+    build:
+      base: nodejs@20
+      buildCommands:
+        - yarn install --frozen-lockfile
+        - yarn build
+      deployFiles:
+        - .next/~
+        - node_modules
+        - package.json
+        - public
+        - next.config.js
+      cache:
+        - node_modules
+        - .next/cache
+        - .yarn
+
+    run:
+      base: nodejs@20
+      ports:
+        - port: 8000
+          httpSupport: true
+      envVariables:
+        NODE_ENV: production
+        PORT: "8000"
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL}
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
+        NEXT_PUBLIC_STRIPE_KEY: ${NEXT_PUBLIC_STRIPE_KEY}
+        REVALIDATE_SECRET: ${REVALIDATE_SECRET}
+      start: yarn start
