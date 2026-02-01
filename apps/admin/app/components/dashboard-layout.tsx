@@ -7,6 +7,7 @@ import { Button, Text, IconButton } from '@medusajs/ui'
 import { BarsThree, XMark, ChevronDownMini } from '@medusajs/icons'
 import { RealtimeProvider } from './realtime-provider'
 import { useDashboardCounts, useVaultCounts } from '@/lib/hooks/use-submissions'
+import { siteConfig } from '@/lib/site.config'
 
 const submissionsNavigation = [
   { name: 'Contact Submissions', href: '/contact-submissions', table: 'contact_submissions' },
@@ -89,7 +90,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         <div className="flex flex-col h-full">
           {/* Logo + Close button */}
           <div className="p-3 lg:p-4 border-b border-ui-border-base flex items-center justify-between">
-            <Text className="text-sm lg:text-base font-semibold text-ui-fg-base">GrayCup Admin</Text>
+            <Text className="text-sm lg:text-base font-semibold text-ui-fg-base">{siteConfig.fullAdminTitle}</Text>
             <IconButton
               variant="transparent"
               className="lg:hidden"
@@ -273,7 +274,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Logout */}
-          <div className="p-2 lg:p-3 border-t border-ui-border-base">
+          <div className="p-2 lg:p-3 border-t border-ui-border-base space-y-2">
             <Button
               variant="secondary"
               className="w-full text-sm"
@@ -281,6 +282,14 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             >
               Sign out
             </Button>
+            <a
+              href={siteConfig.template.url}
+              target="_blank"
+              rel="noreferrer"
+              className="block text-center text-xs text-ui-fg-muted hover:text-ui-fg-subtle transition-colors"
+            >
+              Template by {siteConfig.template.author}
+            </a>
           </div>
         </div>
       </aside>
@@ -292,7 +301,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           <IconButton variant="transparent" onClick={() => setSidebarOpen(true)}>
             <BarsThree />
           </IconButton>
-          <Text className="text-sm font-semibold text-ui-fg-base">GrayCup Admin</Text>
+          <Text className="text-sm font-semibold text-ui-fg-base">{siteConfig.fullAdminTitle}</Text>
         </div>
 
         <div className="p-4 lg:p-8">

@@ -9,6 +9,7 @@ import JSZip from 'jszip'
 import * as XLSX from 'xlsx'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
+import { siteConfig } from '@/lib/site.config'
 
 const tables = [
   { name: 'Contact Submissions', key: 'contact_submissions' },
@@ -303,7 +304,7 @@ export function BackupsPage() {
       const url = URL.createObjectURL(content)
       const link = document.createElement('a')
       link.href = url
-      link.download = `graycup-backup-${dateStr}.zip`
+      link.download = `${siteConfig.backupPrefix}-${dateStr}.zip`
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)

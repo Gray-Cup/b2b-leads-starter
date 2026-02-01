@@ -5,6 +5,7 @@ import { PageHeader } from '@/app/components/page-header'
 import { Badge, Button, Text, Select } from '@medusajs/ui'
 import { format } from 'date-fns'
 import { useSubmissions } from '@/lib/hooks/use-submissions'
+import { siteConfig } from '@/lib/site.config'
 
 interface Feedback {
   id: string
@@ -74,7 +75,7 @@ export function AnalyzePage() {
       .join(',')
 
     if (emails) {
-      window.location.href = `mailto:${emails}?subject=Feedback Follow-up&body=Hi,%0A%0AThank you for your feedback. We would love to hear more about your experience and how we can improve.%0A%0ABest regards,%0AGrayCup Team`
+      window.location.href = `mailto:${emails}?subject=Feedback Follow-up&body=Hi,%0A%0AThank you for your feedback. We would love to hear more about your experience and how we can improve.%0A%0ABest regards,%0A${siteConfig.teamName}`
     }
   }
 
@@ -189,7 +190,7 @@ export function AnalyzePage() {
 
                   {item.email && (
                     <a
-                      href={`mailto:${item.email}?subject=Feedback Follow-up&body=Hi ${item.name || ''},%0A%0AThank you for your feedback. We noticed you rated your experience as "${item.rating}" and would love to hear more about how we can improve.%0A%0ABest regards,%0AGrayCup Team`}
+                      href={`mailto:${item.email}?subject=Feedback Follow-up&body=Hi ${item.name || ''},%0A%0AThank you for your feedback. We noticed you rated your experience as "${item.rating}" and would love to hear more about how we can improve.%0A%0ABest regards,%0A${siteConfig.teamName}`}
                       className="text-sm text-ui-fg-interactive hover:underline"
                     >
                       {item.email}
@@ -215,7 +216,7 @@ export function AnalyzePage() {
                       variant="secondary"
                       size="small"
                       onClick={() => {
-                        window.location.href = `mailto:${item.email}?subject=Feedback Follow-up&body=Hi ${item.name || ''},%0A%0AThank you for your feedback. We noticed you rated your experience as "${item.rating}" and would love to hear more about how we can improve.%0A%0ABest regards,%0AGrayCup Team`
+                        window.location.href = `mailto:${item.email}?subject=Feedback Follow-up&body=Hi ${item.name || ''},%0A%0AThank you for your feedback. We noticed you rated your experience as "${item.rating}" and would love to hear more about how we can improve.%0A%0ABest regards,%0A${siteConfig.teamName}`
                       }}
                     >
                       Contact

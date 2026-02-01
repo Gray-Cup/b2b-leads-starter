@@ -8,9 +8,9 @@
     "start": "turbo start",
     "lint": "turbo lint",
     "dev:admin": "turbo dev --filter=@b2b/admin",
-    "dev:storefront": "turbo dev --filter=@b2b/storefront",
+    "dev:web": "turbo dev --filter=@b2b/web",
     "build:admin": "turbo build --filter=@b2b/admin",
-    "build:storefront": "turbo build --filter=@b2b/storefront"
+    "build:web": "turbo build --filter=@b2b/web"
   },
   "devDependencies": {
     "turbo": "^2.3.0"

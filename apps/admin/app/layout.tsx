@@ -7,13 +7,14 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from '@medusajs/ui'
 import { ThemeToggle } from './components/theme-toggle'
+import { siteConfig } from '@/lib/site.config'
 
 export const metadata: Metadata = {
   title: {
-    default: 'GrayCup Admin',
-    template: '%s | GrayCup Admin',
+    default: siteConfig.fullAdminTitle,
+    template: `%s | ${siteConfig.fullAdminTitle}`,
   },
-  description: 'GrayCup B2B Admin Panel',
+  description: `${siteConfig.name} ${siteConfig.adminDescription}`,
   robots: {
     index: false,
     follow: false,

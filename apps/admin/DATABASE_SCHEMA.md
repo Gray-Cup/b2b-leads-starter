@@ -1,4 +1,4 @@
-# GrayCup B2B Database Schema
+# B2B Leads Database Schema
 
 Use this document to build an admin panel for managing all form submissions. Each table has a `resolved` boolean field that can be toggled to mark items as handled.
 

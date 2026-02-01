@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
+import { siteConfig } from '@/lib/site.config'
 
 const tableLabels: Record<string, string> = {
   contact_submissions: 'Contact Submission',
@@ -81,7 +82,7 @@ function formatSubmissionForDiscord(table: string, submission: Record<string, un
         inline: f.inline ?? false,
       })),
       footer: {
-        text: 'GrayCup Admin',
+        text: siteConfig.fullAdminTitle,
       },
       timestamp: new Date().toISOString(),
     }],
